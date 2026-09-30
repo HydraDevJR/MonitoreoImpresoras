@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MonitorIMP.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38452d75b0fc165798d4e18c35e7856add7d1995")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34dcac11ef0717bc8905ceee363f3e967457c66d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MonitorIMP.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MonitorIMP.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

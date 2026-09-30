@@ -1,9 +1,12 @@
+using MonitorIMP.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. Registrar servicios de Controladores y Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
 

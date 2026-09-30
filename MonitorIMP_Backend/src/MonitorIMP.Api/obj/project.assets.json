@@ -1204,6 +1204,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.12",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.12",
           "MonitorIMP.Application": "1.0.0"
         },

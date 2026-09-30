@@ -3751,8 +3751,10 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "Microsoft.EntityFrameworkCore >= 10.0.12",
+      "Microsoft.EntityFrameworkCore.Relational >= 10.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.12",
+      "Microsoft.Extensions.Configuration.Abstractions >= 10.0.12",
       "MonitorIMP.Application >= 1.0.0"
     ]
   },
@@ -3762,11 +3764,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
       "projectName": "MonitorIMP.Infrastructure",
-      "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
+      "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\sistemas2\\.nuget\\packages\\",
-      "outputPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\obj\\",
+      "outputPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sistemas2\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3782,8 +3784,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
-              "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj"
+            "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
+              "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj"
             }
           }
         }
@@ -3809,6 +3811,10 @@
             "target": "Package",
             "version": "[10.0.12, )"
           },
+          "Microsoft.EntityFrameworkCore.Relational": {
+            "target": "Package",
+            "version": "[10.0.12, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[10.0.12, )"
@@ -3816,6 +3822,10 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[10.0.12, )"
+          },
+          "Microsoft.Extensions.Configuration.Abstractions": {
             "target": "Package",
             "version": "[10.0.12, )"
           }
