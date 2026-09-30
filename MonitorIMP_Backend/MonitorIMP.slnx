@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MonitorIMP.Api/MonitorIMP.Api.csproj" />
+    <Project Path="src/MonitorIMP.Application/MonitorIMP.Application.csproj" />
+    <Project Path="src/MonitorIMP.Domain/MonitorIMP.Domain.csproj" />
+    <Project Path="src/MonitorIMP.Infrastructure/MonitorIMP.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MonitorIMP.Application.Tests/MonitorIMP.Application.Tests.csproj" />
+  </Folder>
+</Solution>

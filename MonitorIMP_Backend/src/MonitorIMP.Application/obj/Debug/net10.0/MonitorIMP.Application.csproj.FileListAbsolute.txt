@@ -1,0 +1,16 @@
+c:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\bin\Debug\net10.0\MonitorIMP.Application.deps.json
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\bin\Debug\net10.0\MonitorIMP.Application.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\bin\Debug\net10.0\MonitorIMP.Application.pdb
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\bin\Debug\net10.0\MonitorIMP.Domain.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\bin\Debug\net10.0\MonitorIMP.Domain.pdb
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.csproj.AssemblyReference.cache
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.AssemblyInfoInputs.cache
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.AssemblyInfo.cs
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.csproj.CoreCompileInputs.cache
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.sourcelink.json
+c:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorI.22C35273.Up2Date
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\refint\MonitorIMP.Application.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\MonitorIMP.Application.pdb
+c:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Application\obj\Debug\net10.0\ref\MonitorIMP.Application.dll
