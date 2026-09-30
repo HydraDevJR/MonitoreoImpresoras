@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MonitorIMP.Application.Interfaces.Persistence;
 using MonitorIMP.Infrastructure.Persistence;
+using MonitorIMP.Infrastructure.Persistence.Repositories;
 
 namespace MonitorIMP.Infrastructure;
 
@@ -22,6 +24,9 @@ public static class DependencyInjection
                     typeof(ApplicationDbContext).Assembly.FullName)));
 
         // Repositorios y servicios de infraestructura se registrarán aquí.
+        services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+
+        services.AddScoped<IImpresoraRepository, ImpresoraRepository>();
 
         return services;
     }
