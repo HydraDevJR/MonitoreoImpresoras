@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ui8tZQblV8U=",
+  "dgSpecHash": "2gy8jPKY6O0=",
   "success": true,
-  "projectFilePath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
+  "projectFilePath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sistemas2\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\sistemas2\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
