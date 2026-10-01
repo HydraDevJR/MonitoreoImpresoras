@@ -13,11 +13,14 @@ public class ApplicationDbContext : DbContext
     // Colecciones DbSet para el Core del sistema
     public DbSet<Organizacion> Organizaciones => Set<Organizacion>();
     public DbSet<Franquicia> Franquicias => Set<Franquicia>();
+    public DbSet<Auditoria> Auditorias => Set<Auditoria>();
     public DbSet<Restaurante> Restaurantes => Set<Restaurante>();
     public DbSet<Agente> Agentes => Set<Agente>();
+    public DbSet<AgenteCredencial> AgenteCredenciales => Set<AgenteCredencial>();
     public DbSet<Impresora> Impresoras => Set<Impresora>();
     public DbSet<ImpresoraEvento> ImpresoraEventos => Set<ImpresoraEvento>();
     public DbSet<Usuario> Usuarios => Set<Usuario>();
+    public DbSet<UsuarioAcceso> UsuarioAccesos => Set<UsuarioAcceso>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
