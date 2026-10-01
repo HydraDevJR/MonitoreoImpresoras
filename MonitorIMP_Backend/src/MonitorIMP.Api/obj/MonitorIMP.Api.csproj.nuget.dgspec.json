@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj": {}
+    "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj": {}
   },
   "projects": {
-    "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj": {
+    "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
+        "projectUniqueName": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
         "projectName": "MonitorIMP.Api",
-        "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
+        "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
         "packagesPath": "C:\\Users\\sistemas2\\.nuget\\packages\\",
-        "outputPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\obj\\",
+        "outputPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sistemas2\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -27,8 +27,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj": {
-                "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj"
+              "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj": {
+                "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj"
               }
             }
           }
@@ -502,14 +502,14 @@
         }
       }
     },
-    "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
+    "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj",
+        "projectUniqueName": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj",
         "projectName": "MonitorIMP.Application",
-        "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj",
+        "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj",
         "packagesPath": "C:\\Users\\sistemas2\\.nuget\\packages\\",
-        "outputPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\obj\\",
+        "outputPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sistemas2\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -525,8 +525,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj": {
-                "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj"
+              "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj": {
+                "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj"
               }
             }
           }
@@ -841,14 +841,14 @@
         }
       }
     },
-    "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj": {
+    "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj",
+        "projectUniqueName": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj",
         "projectName": "MonitorIMP.Domain",
-        "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj",
+        "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\MonitorIMP.Domain.csproj",
         "packagesPath": "C:\\Users\\sistemas2\\.nuget\\packages\\",
-        "outputPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\obj\\",
+        "outputPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sistemas2\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1176,14 +1176,14 @@
         }
       }
     },
-    "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj": {
+    "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
         "projectName": "MonitorIMP.Infrastructure",
-        "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
+        "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\sistemas2\\.nuget\\packages\\",
-        "outputPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\obj\\",
+        "outputPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sistemas2\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1199,8 +1199,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
-                "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj"
+              "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
+                "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj"
               }
             }
           }

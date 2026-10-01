@@ -8,4 +8,8 @@ public class Usuario : BaseEntity<int>
     public string Nombre { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public RolUsuario Rol { get; set; }
+
+    public ICollection<UsuarioAcceso> Accesos { get; set; } = new List<UsuarioAcceso>();
+
+    public ICollection<Auditoria> Auditorias { get; set; } = new List<Auditoria>();
 }

@@ -973,8 +973,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
-              "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj"
+            "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj": {
+              "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Application\\MonitorIMP.Application.csproj"
             }
           }
         }
