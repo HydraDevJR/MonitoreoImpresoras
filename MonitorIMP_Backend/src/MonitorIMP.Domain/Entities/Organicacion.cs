@@ -8,4 +8,6 @@ public class Organizacion : BaseEntity<int>
     public ICollection<Franquicia> Franquicias { get; set; } = new List<Franquicia>();
 
     public ICollection<UsuarioAcceso> AccesosUsuario { get; set; } = new List<UsuarioAcceso>();
+
+    public ICollection<Auditoria> Auditorias { get; set; } = new List<Auditoria>();
 }

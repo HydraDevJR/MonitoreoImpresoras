@@ -13,4 +13,5 @@ public class Restaurante : BaseEntity<int>
     public ICollection<Agente> Agentes { get; set; } = new List<Agente>();
 
     public ICollection<UsuarioAcceso> AccesosUsuario { get; set; } = new List<UsuarioAcceso>();
+    public ICollection<Auditoria> Auditorias { get; set; } = new List<Auditoria>();
 }

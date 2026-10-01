@@ -11,4 +11,5 @@ public class Franquicia : BaseEntity<int>
     public ICollection<Restaurante> Restaurantes { get; set; } = new List<Restaurante>();
 
     public ICollection<UsuarioAcceso> AccesosUsuario { get; set; } = new List<UsuarioAcceso>();
+    public ICollection<Auditoria> Auditorias { get; set; } = new List<Auditoria>();
 }
