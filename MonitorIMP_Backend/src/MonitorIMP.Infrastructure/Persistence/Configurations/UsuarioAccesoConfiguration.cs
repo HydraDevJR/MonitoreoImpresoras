@@ -10,13 +10,8 @@ public class UsuarioAccesoConfiguration : IEntityTypeConfiguration<UsuarioAcceso
     {
         builder.ToTable("UsuariosAccesos", table =>
         {
-            // Los valores corresponden a:
-            // Organizacion = 1
-            // Franquicia = 2
-            // Restaurante = 3
-            //
-            // Si se modifica el enum NivelAcceso,
-            // esta restricción debe actualizarse.
+            // Nivel: Organizacion = 1, Franquicia = 2, Restaurante = 3
+            // Si el enum NivelAcceso cambia, este constraint debe actualizarse.
             table.HasCheckConstraint(
                 "CK_UsuariosAccesos_Nivel_Referencia",
                 """
@@ -31,79 +26,66 @@ public class UsuarioAccesoConfiguration : IEntityTypeConfiguration<UsuarioAcceso
         });
 
         builder.HasKey(a => a.Id);
+        builder.Property(a => a.Id).ValueGeneratedNever();
 
+        // Enums como int
         builder.Property(a => a.Nivel)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
 
         builder.Property(a => a.UsuarioId)
             .IsRequired();
 
-        builder.Property(a => a.OrganizacionId)
-            .IsRequired(false);
+        // FKs nullable
+        builder.Property(a => a.OrganizacionId);
+        builder.Property(a => a.FranquiciaId);
+        builder.Property(a => a.RestauranteId);
 
-        builder.Property(a => a.FranquiciaId)
-            .IsRequired(false);
-
-        builder.Property(a => a.RestauranteId)
-            .IsRequired(false);
-
-        // Relaciones
+        // Relaciones (todas Restrict por soft delete)
         builder.HasOne(a => a.Usuario)
-            .WithMany(u => u.Accesos)
+            .WithMany(u => u.UsuarioAccesos)
             .HasForeignKey(a => a.UsuarioId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(a => a.Organizacion)
-            .WithMany(o => o.AccesosUsuario)
+            .WithMany(o => o.UsuarioAccesos)
             .HasForeignKey(a => a.OrganizacionId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(a => a.Franquicia)
-            .WithMany(f => f.AccesosUsuario)
+            .WithMany(f => f.UsuarioAccesos)
             .HasForeignKey(a => a.FranquiciaId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(a => a.Restaurante)
-            .WithMany(r => r.AccesosUsuario)
+            .WithMany(r => r.UsuarioAccesos)
             .HasForeignKey(a => a.RestauranteId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Índices para resolución de alcance
-        builder.HasIndex(a => new
-        {
-            a.UsuarioId,
-            a.Activo
-        });
+        // Índice para accesos activos por usuario
+        builder.HasIndex(a => new { a.UsuarioId, a.Activo });
 
-        builder.HasIndex(a => a.OrganizacionId);
+        // Índices filtrados por FK (consultas "quién tiene acceso a X")
+        builder.HasIndex(a => a.OrganizacionId)
+            .HasFilter("[OrganizacionId] IS NOT NULL");
 
-        builder.HasIndex(a => a.FranquiciaId);
+        builder.HasIndex(a => a.FranquiciaId)
+            .HasFilter("[FranquiciaId] IS NOT NULL");
 
-        builder.HasIndex(a => a.RestauranteId);
+        builder.HasIndex(a => a.RestauranteId)
+            .HasFilter("[RestauranteId] IS NOT NULL");
 
-        // Índices únicos para evitar accesos activos duplicados
-        builder.HasIndex(a => new
-        {
-            a.UsuarioId,
-            a.OrganizacionId
-        })
-        .IsUnique()
-        .HasFilter("[Activo] = 1 AND [OrganizacionId] IS NOT NULL");
+        // Índices únicos (sin filtro de Activo — regla del proyecto)
+        builder.HasIndex(a => new { a.UsuarioId, a.OrganizacionId })
+            .IsUnique()
+            .HasFilter("[OrganizacionId] IS NOT NULL");
 
-        builder.HasIndex(a => new
-        {
-            a.UsuarioId,
-            a.FranquiciaId
-        })
-        .IsUnique()
-        .HasFilter("[Activo] = 1 AND [FranquiciaId] IS NOT NULL");
+        builder.HasIndex(a => new { a.UsuarioId, a.FranquiciaId })
+            .IsUnique()
+            .HasFilter("[FranquiciaId] IS NOT NULL");
 
-        builder.HasIndex(a => new
-        {
-            a.UsuarioId,
-            a.RestauranteId
-        })
-        .IsUnique()
-        .HasFilter("[Activo] = 1 AND [RestauranteId] IS NOT NULL");
+        builder.HasIndex(a => new { a.UsuarioId, a.RestauranteId })
+            .IsUnique()
+            .HasFilter("[RestauranteId] IS NOT NULL");
     }
 }

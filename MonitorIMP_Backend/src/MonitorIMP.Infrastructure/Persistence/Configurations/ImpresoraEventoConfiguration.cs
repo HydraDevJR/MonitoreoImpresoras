@@ -11,26 +11,51 @@ public class ImpresoraEventoConfiguration : IEntityTypeConfiguration<ImpresoraEv
         builder.ToTable("ImpresoraEventos");
 
         builder.HasKey(e => e.Id);
+        builder.Property(e => e.Id).ValueGeneratedNever();
 
+        builder.Property(e => e.ImpresoraId).IsRequired();
+
+        // Enum como int (consistente con el proyecto)
         builder.Property(e => e.TipoEvento)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
 
-        builder.Property(e => e.FechaEvento)
-            .IsRequired();
-
-        builder.Property(e => e.EstadoAnterior);
+        // Estados como enum
+        builder.Property(e => e.EstadoAnterior)
+            .HasConversion<int>();
 
         builder.Property(e => e.EstadoNuevo)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
+
+        builder.Property(e => e.FechaEvento)
+            .IsRequired()
+            .HasColumnType("datetime2")
+            .HasDefaultValueSql("GETUTCDATE()");
 
         builder.Property(e => e.Descripcion)
             .HasMaxLength(500);
 
-        builder.Property(e => e.EventoId);
+        builder.Property(e => e.EventoId)
+            .IsRequired();
 
-        builder.HasIndex(e => e.EventoId)
+        // ✅ Idempotencia: único por impresora
+        builder.HasIndex(e => new { e.ImpresoraId, e.EventoId })
             .IsUnique();
 
-        builder.HasIndex(e => new { e.ImpresoraId, e.FechaEvento });
+        // Índices para consultas frecuentes
+        builder.HasIndex(e => new { e.ImpresoraId, e.FechaEvento })
+            .IsDescending(false, true);
+
+        builder.HasIndex(e => new { e.TipoEvento, e.FechaEvento })
+            .IsDescending(false, true);
+
+        builder.HasIndex(e => e.FechaEvento).IsDescending();
+
+        // Relación con Impresora (historial => Restrict)
+        builder.HasOne(e => e.Impresora)
+            .WithMany(i => i.Eventos)
+            .HasForeignKey(e => e.ImpresoraId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

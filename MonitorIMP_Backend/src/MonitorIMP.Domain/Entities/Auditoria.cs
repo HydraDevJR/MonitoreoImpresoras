@@ -1,7 +1,11 @@
+using MonitorIMP.Domain.Enums;
+
 namespace MonitorIMP.Domain.Entities;
 
 public class Auditoria : BaseEntity<Guid>
 {
+    public OrigenAuditoria Origen { get; set; }
+
     public int? UsuarioId { get; set; }
     public Guid? AgenteId { get; set; }
 

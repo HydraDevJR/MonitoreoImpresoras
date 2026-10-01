@@ -4,31 +4,34 @@ using MonitorIMP.Domain.Entities;
 
 namespace MonitorIMP.Infrastructure.Persistence.Configurations;
 
-public class CredencialAgenteConfiguration : IEntityTypeConfiguration<AgenteCredencial>
+public class AgenteCredencialConfiguration : IEntityTypeConfiguration<AgenteCredencial>
 {
     public void Configure(EntityTypeBuilder<AgenteCredencial> builder)
     {
         builder.ToTable("AgenteCredenciales");
 
         builder.HasKey(c => c.Id);
+        builder.Property(c => c.Id).ValueGeneratedNever();
 
         builder.Property(c => c.HashSecreto)
             .IsRequired()
-            .HasMaxLength(500);
+            .HasMaxLength(255);
 
         builder.Property(c => c.FechaExpiracion)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("datetime2");
 
         builder.Property(c => c.FechaRevocacion)
-            .IsRequired(false);
+            .HasColumnType("datetime2");
 
         builder.Property(c => c.UltimoUso)
-            .IsRequired(false);
+            .HasColumnType("datetime2");
 
         builder.HasIndex(c => c.AgenteId);
 
+        // Relación definida SOLO aquí (no en AgenteConfiguration)
         builder.HasOne(c => c.Agente)
-            .WithMany()
+            .WithMany(a => a.Credenciales)
             .HasForeignKey(c => c.AgenteId)
             .OnDelete(DeleteBehavior.Restrict);
     }
