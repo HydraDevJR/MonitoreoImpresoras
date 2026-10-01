@@ -2,7 +2,7 @@ namespace MonitorIMP.Domain.Enums;
 
 public enum EstadoAgente
 {
-    Inactivo = 0,
-    Activo = 1,
-    Error = 2
+    Inactivo = 1,
+    Activo = 2,
+    Error = 3
 }

@@ -2,7 +2,8 @@ namespace MonitorIMP.Domain.Enums;
 
 public enum RolUsuario
 {
-    Administrador = 0,
-    Soporte = 1,
-    Consulta = 2
+    SuperAdministrador = 1,
+    Administrador = 2,
+    Soporte = 3,
+    Consulta = 4
 }

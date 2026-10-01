@@ -11,6 +11,13 @@ public class AgenteConfiguration : IEntityTypeConfiguration<Agente>
         builder.ToTable("Agentes");
 
         builder.HasKey(a => a.Id);
+        builder.Property(a => a.Id).ValueGeneratedNever();
+
+        builder.Property(a => a.RestauranteId)
+            .IsRequired();
+
+        // ✅ Código único global (consistente con Impresora)
+        builder.HasIndex(a => a.Codigo).IsUnique();
 
         builder.Property(a => a.Codigo)
             .IsRequired()
@@ -21,20 +28,25 @@ public class AgenteConfiguration : IEntityTypeConfiguration<Agente>
             .HasMaxLength(100);
 
         builder.Property(a => a.Version)
+            .IsRequired()
             .HasMaxLength(30);
 
+        // ✅ Enum como int (consistente con el proyecto)
         builder.Property(a => a.Estado)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
+
+        builder.Property(a => a.UltimoHeartBeat)
+            .HasColumnType("datetime2");
 
         builder.Property(a => a.UltimaIp)
             .HasMaxLength(45);
 
-        builder.HasIndex(a => new { a.RestauranteId, a.Codigo })
-            .IsUnique();
+        // ✅ Relación con Restaurante (configurada en el dependiente)
+        builder.HasOne(a => a.Restaurante)
+            .WithMany(r => r.Agentes) // verificar que Restaurante tenga la colección
+            .HasForeignKey(a => a.RestauranteId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(a => a.Impresoras)
-            .WithOne(i => i.Agente)
-            .HasForeignKey(i => i.AgenteId)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

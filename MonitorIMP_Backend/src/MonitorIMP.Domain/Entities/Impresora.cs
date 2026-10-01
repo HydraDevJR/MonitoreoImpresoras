@@ -5,6 +5,8 @@ namespace MonitorIMP.Domain.Entities;
 public class Impresora : BaseEntity<Guid>
 {
     public Guid AgenteId { get; set; }
+    public int RestauranteId { get; set; }        // ✅ NUEVO
+
     public string Codigo { get; set; } = string.Empty;
     public string Nombre { get; set; } = string.Empty;
     public string? Serial { get; set; }
@@ -12,7 +14,9 @@ public class Impresora : BaseEntity<Guid>
     public string? IpActual { get; set; }
     public EstadoImpresora Estado { get; set; }
 
-    // Propiedades de navegación de EF Core
+    // Navegaciones
     public Agente? Agente { get; set; }
+    public Restaurante? Restaurante { get; set; } // ✅ NUEVO
+
     public ICollection<ImpresoraEvento> Eventos { get; set; } = new List<ImpresoraEvento>();
 }

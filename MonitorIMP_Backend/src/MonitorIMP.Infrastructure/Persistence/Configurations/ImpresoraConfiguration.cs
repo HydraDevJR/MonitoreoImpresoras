@@ -11,6 +11,14 @@ public class ImpresoraConfiguration : IEntityTypeConfiguration<Impresora>
         builder.ToTable("Impresoras");
 
         builder.HasKey(i => i.Id);
+        builder.Property(i => i.Id).ValueGeneratedNever();
+
+        // FKs
+        builder.Property(i => i.AgenteId).IsRequired();
+        builder.Property(i => i.RestauranteId).IsRequired();
+
+        // Código único global
+        builder.HasIndex(i => i.Codigo).IsUnique();
 
         builder.Property(i => i.Codigo)
             .IsRequired()
@@ -23,18 +31,40 @@ public class ImpresoraConfiguration : IEntityTypeConfiguration<Impresora>
         builder.Property(i => i.Serial)
             .HasMaxLength(50);
 
+        builder.HasIndex(i => i.Serial)
+            .IsUnique()
+            .HasFilter("[Serial] IS NOT NULL");
+
         builder.Property(i => i.Mac)
             .HasMaxLength(17);
+
+        builder.HasIndex(i => i.Mac)
+            .IsUnique()
+            .HasFilter("[Mac] IS NOT NULL");
 
         builder.Property(i => i.IpActual)
             .HasMaxLength(45);
 
+        // Enum como int
         builder.Property(i => i.Estado)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
 
-        builder.HasMany(i => i.Eventos)
-            .WithOne(e => e.Impresora)
-            .HasForeignKey(e => e.ImpresoraId)
-            .OnDelete(DeleteBehavior.Cascade);
+        // Relación con Agente
+        builder.HasOne(i => i.Agente)
+            .WithMany(a => a.Impresoras)
+            .HasForeignKey(i => i.AgenteId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relación con Restaurante
+        builder.HasOne(i => i.Restaurante)
+            .WithMany(r => r.Impresoras)
+            .HasForeignKey(i => i.RestauranteId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Índices
+        builder.HasIndex(i => i.AgenteId);
+        builder.HasIndex(i => i.RestauranteId);
+        builder.HasIndex(i => i.Estado);
     }
 }

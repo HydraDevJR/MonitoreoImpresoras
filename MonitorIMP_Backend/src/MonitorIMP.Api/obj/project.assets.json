@@ -3650,11 +3650,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
+      "projectUniqueName": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
       "projectName": "MonitorIMP.Api",
-      "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
+      "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\MonitorIMP.Api.csproj",
       "packagesPath": "C:\\Users\\sistemas2\\.nuget\\packages\\",
-      "outputPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\obj\\",
+      "outputPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sistemas2\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3670,8 +3670,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj": {
-              "projectPath": "c:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj"
+            "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj": {
+              "projectPath": "C:\\Desarrollo\\Monitore de Impresoras\\MonitoreoImpresoras\\MonitorIMP_Backend\\src\\MonitorIMP.Infrastructure\\MonitorIMP.Infrastructure.csproj"
             }
           }
         }
