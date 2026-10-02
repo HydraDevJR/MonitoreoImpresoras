@@ -13,15 +13,15 @@ public class AgenteConfiguration : IEntityTypeConfiguration<Agente>
         builder.HasKey(a => a.Id);
         builder.Property(a => a.Id).ValueGeneratedNever();
 
-        builder.Property(a => a.RestauranteId)
-            .IsRequired();
-
-        // ✅ Código único global (consistente con Impresora)
-        builder.HasIndex(a => a.Codigo).IsUnique();
+        builder.Property(a => a.RestauranteId).IsRequired();
 
         builder.Property(a => a.Codigo)
             .IsRequired()
             .HasMaxLength(30);
+
+        // Código único por restaurante
+        builder.HasIndex(a => new { a.RestauranteId, a.Codigo })
+            .IsUnique();
 
         builder.Property(a => a.NombreEquipo)
             .IsRequired()
@@ -31,7 +31,6 @@ public class AgenteConfiguration : IEntityTypeConfiguration<Agente>
             .IsRequired()
             .HasMaxLength(30);
 
-        // ✅ Enum como int (consistente con el proyecto)
         builder.Property(a => a.Estado)
             .IsRequired()
             .HasConversion<int>();
@@ -40,13 +39,18 @@ public class AgenteConfiguration : IEntityTypeConfiguration<Agente>
             .HasColumnType("datetime2");
 
         builder.Property(a => a.UltimaIp)
+            .HasColumnType("varchar(45)")
             .HasMaxLength(45);
 
-        // ✅ Relación con Restaurante (configurada en el dependiente)
+        // Índices para consultas frecuentes
+        builder.HasIndex(a => a.Estado);
+        builder.HasIndex(a => a.UltimoHeartBeat);
+        builder.HasIndex(a => new { a.Estado, a.UltimoHeartBeat });
+
+        // Relación con Restaurante
         builder.HasOne(a => a.Restaurante)
-            .WithMany(r => r.Agentes) // verificar que Restaurante tenga la colección
+            .WithMany(r => r.Agentes)
             .HasForeignKey(a => a.RestauranteId)
             .OnDelete(DeleteBehavior.Restrict);
-
     }
 }

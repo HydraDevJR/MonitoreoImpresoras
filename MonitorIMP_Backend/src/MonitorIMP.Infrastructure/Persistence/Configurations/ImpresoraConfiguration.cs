@@ -13,16 +13,15 @@ public class ImpresoraConfiguration : IEntityTypeConfiguration<Impresora>
         builder.HasKey(i => i.Id);
         builder.Property(i => i.Id).ValueGeneratedNever();
 
-        // FKs
         builder.Property(i => i.AgenteId).IsRequired();
         builder.Property(i => i.RestauranteId).IsRequired();
-
-        // Código único global
-        builder.HasIndex(i => i.Codigo).IsUnique();
 
         builder.Property(i => i.Codigo)
             .IsRequired()
             .HasMaxLength(30);
+
+        // Código único por restaurante
+        builder.HasIndex(i => new { i.RestauranteId, i.Codigo }).IsUnique();
 
         builder.Property(i => i.Nombre)
             .IsRequired()
@@ -42,21 +41,21 @@ public class ImpresoraConfiguration : IEntityTypeConfiguration<Impresora>
             .IsUnique()
             .HasFilter("[Mac] IS NOT NULL");
 
+        // ✅ IP como varchar(45)
         builder.Property(i => i.IpActual)
+            .HasColumnType("varchar(45)")
             .HasMaxLength(45);
 
-        // Enum como int
         builder.Property(i => i.Estado)
             .IsRequired()
             .HasConversion<int>();
 
-        // Relación con Agente
+        // Relaciones
         builder.HasOne(i => i.Agente)
             .WithMany(a => a.Impresoras)
             .HasForeignKey(i => i.AgenteId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relación con Restaurante
         builder.HasOne(i => i.Restaurante)
             .WithMany(r => r.Impresoras)
             .HasForeignKey(i => i.RestauranteId)

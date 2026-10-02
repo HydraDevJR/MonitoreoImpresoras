@@ -62,7 +62,7 @@ public class UsuarioAccesoConfiguration : IEntityTypeConfiguration<UsuarioAcceso
             .HasForeignKey(a => a.RestauranteId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Índice para accesos activos por usuario
+        // Índice para accesos activos por usuario (consulta frecuente)
         builder.HasIndex(a => new { a.UsuarioId, a.Activo });
 
         // Índices filtrados por FK (consultas "quién tiene acceso a X")
@@ -75,7 +75,9 @@ public class UsuarioAccesoConfiguration : IEntityTypeConfiguration<UsuarioAcceso
         builder.HasIndex(a => a.RestauranteId)
             .HasFilter("[RestauranteId] IS NOT NULL");
 
-        // Índices únicos (sin filtro de Activo — regla del proyecto)
+        // ✅ Índices únicos SIN filtro de Activo
+        // Garantiza un solo registro por (usuario, scope), activo o no.
+        // Reactivar = UPDATE del registro existente, no INSERT.
         builder.HasIndex(a => new { a.UsuarioId, a.OrganizacionId })
             .IsUnique()
             .HasFilter("[OrganizacionId] IS NOT NULL");

@@ -10,10 +10,6 @@ public class AuditoriaConfiguration : IEntityTypeConfiguration<Auditoria>
     {
         builder.ToTable("Auditorias", table =>
         {
-            // Regla: el origen determina qué actores son válidos.
-            // - Usuario  => UsuarioId obligatorio, AgenteId nulo
-            // - Agente   => AgenteId obligatorio,  UsuarioId nulo
-            // - Sistema/Api/Migracion => ambos nulos
             table.HasCheckConstraint(
                 "CK_Auditorias_OrigenActor",
                 """
@@ -46,11 +42,8 @@ public class AuditoriaConfiguration : IEntityTypeConfiguration<Auditoria>
             .IsRequired()
             .HasMaxLength(100);
 
-        builder.Property(a => a.DatosAnteriores)
-            .HasColumnType("nvarchar(max)");
-
-        builder.Property(a => a.DatosNuevos)
-            .HasColumnType("nvarchar(max)");
+        builder.Property(a => a.DatosAnteriores).HasColumnType("nvarchar(max)");
+        builder.Property(a => a.DatosNuevos).HasColumnType("nvarchar(max)");
 
         builder.Property(a => a.FechaEvento)
             .IsRequired()
@@ -60,36 +53,40 @@ public class AuditoriaConfiguration : IEntityTypeConfiguration<Auditoria>
         builder.Property(a => a.IpOrigen)
             .HasColumnType("varchar(45)");
 
-        // Índices filtrados por actor
+        // ✅ Índices filtrados por actor con orden descendente
         builder.HasIndex(a => new { a.UsuarioId, a.FechaEvento })
-            .HasFilter("[UsuarioId] IS NOT NULL");
+            .HasFilter("[UsuarioId] IS NOT NULL")
+            .IsDescending(false, true);
 
         builder.HasIndex(a => new { a.AgenteId, a.FechaEvento })
-            .HasFilter("[AgenteId] IS NOT NULL");
+            .HasFilter("[AgenteId] IS NOT NULL")
+            .IsDescending(false, true);
 
-        // Índices filtrados por alcance
+        // ✅ Índices filtrados por alcance con orden descendente
         builder.HasIndex(a => new { a.OrganizacionId, a.FechaEvento })
-            .HasFilter("[OrganizacionId] IS NOT NULL");
+            .HasFilter("[OrganizacionId] IS NOT NULL")
+            .IsDescending(false, true);
 
         builder.HasIndex(a => new { a.FranquiciaId, a.FechaEvento })
-            .HasFilter("[FranquiciaId] IS NOT NULL");
+            .HasFilter("[FranquiciaId] IS NOT NULL")
+            .IsDescending(false, true);
 
         builder.HasIndex(a => new { a.RestauranteId, a.FechaEvento })
-            .HasFilter("[RestauranteId] IS NOT NULL");
+            .HasFilter("[RestauranteId] IS NOT NULL")
+            .IsDescending(false, true);
 
-        // Índice por origen (para analítica)
+        // ✅ Índice por origen
         builder.HasIndex(a => new { a.Origen, a.FechaEvento })
             .IsDescending(false, true);
 
-        // Historial de una entidad específica
+        // ✅ Historial por entidad
         builder.HasIndex(a => new { a.Entidad, a.EntidadId, a.FechaEvento })
             .IsDescending(false, false, true);
 
-        // Línea de tiempo general
-        builder.HasIndex(a => a.FechaEvento)
-            .IsDescending();
+        // ✅ Timeline general
+        builder.HasIndex(a => a.FechaEvento).IsDescending(true);
 
-        // Relaciones (siempre Restrict en auditoría)
+        // Relaciones
         builder.HasOne(a => a.Usuario)
             .WithMany(u => u.Auditorias)
             .HasForeignKey(a => a.UsuarioId)
