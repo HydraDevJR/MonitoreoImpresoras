@@ -1,4 +1,4 @@
-namespace MonitorIMP.Domain.Entities;
+namespace MonitorIMP.Domain.Common;
 
 public abstract class BaseEntity<TId>
 {
