@@ -15,7 +15,6 @@ public sealed class ApplicationDbContext
     {
     }
 
-    // DbSets del Core
     public DbSet<Organizacion> Organizaciones => Set<Organizacion>();
     public DbSet<Franquicia> Franquicias => Set<Franquicia>();
     public DbSet<Auditoria> Auditorias => Set<Auditoria>();
