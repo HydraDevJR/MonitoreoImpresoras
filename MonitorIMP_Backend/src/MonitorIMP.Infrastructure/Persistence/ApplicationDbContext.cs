@@ -1,4 +1,7 @@
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using MonitorIMP.Application.Common.Exceptions;
+using MonitorIMP.Domain.Common;
 using MonitorIMP.Domain.Entities;
 
 namespace MonitorIMP.Infrastructure.Persistence;
@@ -33,31 +36,59 @@ public class ApplicationDbContext : DbContext
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        // Interceptor automático para campos de auditoría (FechaCreacion y FechaActualizacion)
-        foreach (var entry in ChangeTracker.Entries<BaseEntity<int>>())
+        AplicarFechasDeAuditoria();
+        return EjecutarConTraduccionAsync(cancellationToken);
+    }
+
+    private void AplicarFechasDeAuditoria()
+    {
+        foreach (var entry in ChangeTracker.Entries<IAuditable>())
         {
-            if (entry.State == EntityState.Added)
+            switch (entry.State)
             {
-                entry.Entity.FechaCreacion = DateTime.UtcNow;
-            }
-            else if (entry.State == EntityState.Modified)
-            {
-                entry.Entity.FechaActualizacion = DateTime.UtcNow;
+                case EntityState.Added:
+                    entry.Entity.FechaCreacion = DateTime.UtcNow;
+                    break;
+                case EntityState.Modified:
+                    entry.Entity.FechaActualizacion = DateTime.UtcNow;
+                    break;
             }
         }
+    }
 
-        foreach (var entry in ChangeTracker.Entries<BaseEntity<Guid>>())
+    private async Task<int> EjecutarConTraduccionAsync(CancellationToken cancellationToken)
+    {
+        try
         {
-            if (entry.State == EntityState.Added)
-            {
-                entry.Entity.FechaCreacion = DateTime.UtcNow;
-            }
-            else if (entry.State == EntityState.Modified)
-            {
-                entry.Entity.FechaActualizacion = DateTime.UtcNow;
-            }
+            return await base.SaveChangesAsync(cancellationToken);
         }
+        catch (DbUpdateException ex) when (EsColisionDeUnicidad(ex))
+        {
+            throw new UniqueConstraintViolationException(ExtraerNombreConstraint(ex));
+        }
+    }
 
-        return base.SaveChangesAsync(cancellationToken);
+    private static bool EsColisionDeUnicidad(DbUpdateException ex)
+    {
+        return ex.InnerException is SqlException sqlEx
+            && sqlEx.Number is 2601 or 2627;
+    }
+
+    private static string? ExtraerNombreConstraint(DbUpdateException ex)
+    {
+        if (ex.InnerException is not SqlException sqlEx)
+            return null;
+
+        // SQL Server incluye el nombre del índice/constraint en el mensaje.
+        // Formato típico: "Violation of UNIQUE KEY constraint 'IX_...'."
+        // o "Cannot insert duplicate key row in object '...' with unique index 'IX_...'."
+        var mensaje = sqlEx.Message;
+
+        var match = System.Text.RegularExpressions.Regex.Match(
+            mensaje,
+            @"(?:constraint|index)\s+'([^']+)'",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+        return match.Success ? match.Groups[1].Value : null;
     }
 }
