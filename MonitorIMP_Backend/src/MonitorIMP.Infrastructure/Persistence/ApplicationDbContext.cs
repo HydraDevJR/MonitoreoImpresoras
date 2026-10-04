@@ -1,19 +1,21 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using MonitorIMP.Application.Abstractions;
 using MonitorIMP.Application.Common.Exceptions;
 using MonitorIMP.Domain.Common;
 using MonitorIMP.Domain.Entities;
 
 namespace MonitorIMP.Infrastructure.Persistence;
 
-public class ApplicationDbContext : DbContext
+public sealed class ApplicationDbContext 
+    : DbContext, IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
 
-    // Colecciones DbSet para el Core del sistema
+    // DbSets del Core
     public DbSet<Organizacion> Organizaciones => Set<Organizacion>();
     public DbSet<Franquicia> Franquicias => Set<Franquicia>();
     public DbSet<Auditoria> Auditorias => Set<Auditoria>();
@@ -28,9 +30,6 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        // Aplica automáticamente todas las configuraciones Fluent API (IEntityTypeConfiguration)
-        // que estén definidas en este ensamblado (carpeta Persistence/Configurations)
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
     }
 
@@ -79,9 +78,6 @@ public class ApplicationDbContext : DbContext
         if (ex.InnerException is not SqlException sqlEx)
             return null;
 
-        // SQL Server incluye el nombre del índice/constraint en el mensaje.
-        // Formato típico: "Violation of UNIQUE KEY constraint 'IX_...'."
-        // o "Cannot insert duplicate key row in object '...' with unique index 'IX_...'."
         var mensaje = sqlEx.Message;
 
         var match = System.Text.RegularExpressions.Regex.Match(
