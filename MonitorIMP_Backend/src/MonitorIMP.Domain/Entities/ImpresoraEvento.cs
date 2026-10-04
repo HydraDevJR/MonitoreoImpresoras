@@ -13,7 +13,7 @@ public class ImpresoraEvento : BaseEntity<Guid>
     public EstadoImpresora? EstadoAnterior { get; set; }
     public EstadoImpresora EstadoNuevo { get; set; }
 
-    public DateTime FechaEvento { get; set; } = DateTime.UtcNow;
+    public DateTime FechaEvento { get; set; }
 
     public string? Descripcion { get; set; }
 
