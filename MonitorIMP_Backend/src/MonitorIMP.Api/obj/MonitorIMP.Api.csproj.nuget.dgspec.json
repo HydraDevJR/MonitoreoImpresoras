@@ -1260,10 +1260,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.12, )"
-            },
-            "Microsoft.Extensions.Configuration.Abstractions": {
-              "target": "Package",
-              "version": "[10.0.12, )"
             }
           },
           "imports": [

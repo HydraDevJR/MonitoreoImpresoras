@@ -101,3 +101,15 @@ C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\test
 C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\obj\Debug\net10.0\MonitorIMP.Application.Tests.pdb
 C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\obj\Debug\net10.0\MonitorIMP.Application.Tests.genruntimeconfig.cache
 C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\obj\Debug\net10.0\ref\MonitorIMP.Application.Tests.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\FluentValidation.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.Logging.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.Options.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\tests\MonitorIMP.Application.Tests\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll
