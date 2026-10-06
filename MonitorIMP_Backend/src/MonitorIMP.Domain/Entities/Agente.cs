@@ -1,4 +1,5 @@
 using MonitorIMP.Domain.Enums;
+using MonitorIMP.Domain.Common;
 
 namespace MonitorIMP.Domain.Entities;
 

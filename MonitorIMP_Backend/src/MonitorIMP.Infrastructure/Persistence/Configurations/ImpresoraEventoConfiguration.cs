@@ -15,12 +15,10 @@ public class ImpresoraEventoConfiguration : IEntityTypeConfiguration<ImpresoraEv
 
         builder.Property(e => e.ImpresoraId).IsRequired();
 
-        // Enum como int (consistente con el proyecto)
         builder.Property(e => e.TipoEvento)
             .IsRequired()
             .HasConversion<int>();
 
-        // Estados como enum
         builder.Property(e => e.EstadoAnterior)
             .HasConversion<int>();
 
@@ -36,23 +34,22 @@ public class ImpresoraEventoConfiguration : IEntityTypeConfiguration<ImpresoraEv
         builder.Property(e => e.Descripcion)
             .HasMaxLength(500);
 
-        builder.Property(e => e.EventoId)
-            .IsRequired();
+        builder.Property(e => e.EventoId).IsRequired();
 
-        // ✅ Idempotencia: único por impresora
-        builder.HasIndex(e => new { e.ImpresoraId, e.EventoId })
-            .IsUnique();
+        // Idempotencia
+        builder.HasIndex(e => new { e.ImpresoraId, e.EventoId }).IsUnique();
 
-        // Índices para consultas frecuentes
+        // Índices timeline
         builder.HasIndex(e => new { e.ImpresoraId, e.FechaEvento })
             .IsDescending(false, true);
 
         builder.HasIndex(e => new { e.TipoEvento, e.FechaEvento })
             .IsDescending(false, true);
 
-        builder.HasIndex(e => e.FechaEvento).IsDescending();
+        // ✅ Timeline general descendente
+        builder.HasIndex(e => e.FechaEvento).IsDescending(true);
 
-        // Relación con Impresora (historial => Restrict)
+        // Relación con Impresora
         builder.HasOne(e => e.Impresora)
             .WithMany(i => i.Eventos)
             .HasForeignKey(e => e.ImpresoraId)

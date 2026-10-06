@@ -1,3 +1,6 @@
+using MonitorIMP.Domain.Common;
+
+
 namespace MonitorIMP.Domain.Entities;
 
 public class Restaurante : BaseEntity<int>

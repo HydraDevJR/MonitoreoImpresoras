@@ -1,4 +1,6 @@
 namespace MonitorIMP.Domain.Entities;
+using MonitorIMP.Domain.Common;
+
 
 public class AgenteCredencial : BaseEntity<Guid>
 {

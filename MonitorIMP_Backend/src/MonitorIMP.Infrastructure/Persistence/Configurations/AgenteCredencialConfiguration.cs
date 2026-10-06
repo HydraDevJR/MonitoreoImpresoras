@@ -27,9 +27,10 @@ public class AgenteCredencialConfiguration : IEntityTypeConfiguration<AgenteCred
         builder.Property(c => c.UltimoUso)
             .HasColumnType("datetime2");
 
-        builder.HasIndex(c => c.AgenteId);
+        // ✅ Índice compuesto (reemplaza el simple por AgenteId)
+        builder.HasIndex(c => new { c.AgenteId, c.Activo });
 
-        // Relación definida SOLO aquí (no en AgenteConfiguration)
+        // Relación con Agente
         builder.HasOne(c => c.Agente)
             .WithMany(a => a.Credenciales)
             .HasForeignKey(c => c.AgenteId)

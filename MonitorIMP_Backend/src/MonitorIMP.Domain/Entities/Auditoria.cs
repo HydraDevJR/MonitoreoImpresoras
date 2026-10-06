@@ -1,4 +1,6 @@
 using MonitorIMP.Domain.Enums;
+using MonitorIMP.Domain.Common;
+
 
 namespace MonitorIMP.Domain.Entities;
 
@@ -20,7 +22,7 @@ public class Auditoria : BaseEntity<Guid>
     public string? DatosAnteriores { get; set; }
     public string? DatosNuevos { get; set; }
 
-    public DateTime FechaEvento { get; set; } = DateTime.UtcNow;
+    public DateTime FechaEvento { get; set; }
 
     public string? IpOrigen { get; set; }
 
