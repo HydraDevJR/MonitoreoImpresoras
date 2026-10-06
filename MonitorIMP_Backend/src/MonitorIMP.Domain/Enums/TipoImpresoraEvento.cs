@@ -2,7 +2,7 @@ namespace MonitorIMP.Domain.Enums;
 
 public enum TipoImpresoraEvento
 {
-    CambioEstado = 0,
-    ImpresoraDetectada = 1,
-    ImpresoraDesconectada = 2
+    CambioEstado = 1,
+    ImpresoraDetectada = 2,
+    ImpresoraDesconectada = 3
 }

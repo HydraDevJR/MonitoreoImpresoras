@@ -11,21 +11,28 @@ public class OrganizacionConfiguration : IEntityTypeConfiguration<Organizacion>
         builder.ToTable("Organizaciones");
 
         builder.HasKey(o => o.Id);
+        // int => identity por defecto
+
+        builder.Property(o => o.Codigo)
+            .IsRequired()
+            .HasMaxLength(20);
+
+        // ✅ Código único global (es el nivel raíz)
+        builder.HasIndex(o => o.Codigo).IsUnique();
 
         builder.Property(o => o.Nombre)
             .IsRequired()
             .HasMaxLength(150);
 
-        builder.HasIndex(o => o.Nit)
-            .IsUnique();
+        // ✅ Índice para búsquedas por nombre
+        builder.HasIndex(o => o.Nombre);
 
         builder.Property(o => o.Nit)
             .IsRequired()
             .HasMaxLength(20);
 
-        builder.HasMany(o => o.Franquicias)
-            .WithOne(f => f.Organizacion)
-            .HasForeignKey(f => f.OrganizacionId)
-            .OnDelete(DeleteBehavior.Restrict);
+        // ✅ NIT único global
+        builder.HasIndex(o => o.Nit).IsUnique();
+        
     }
 }

@@ -12,20 +12,25 @@ public class FranquiciaConfiguration : IEntityTypeConfiguration<Franquicia>
 
         builder.HasKey(f => f.Id);
 
-        builder.HasIndex(f => f.Codigo)
-            .IsUnique();
+        builder.Property(f => f.OrganizacionId).IsRequired();
 
         builder.Property(f => f.Codigo)
             .IsRequired()
             .HasMaxLength(20);
 
+        builder.HasIndex(f => new { f.OrganizacionId, f.Codigo }).IsUnique();
+
         builder.Property(f => f.Nombre)
             .IsRequired()
             .HasMaxLength(150);
 
-        builder.HasMany(f => f.Restaurantes)
-            .WithOne(r => r.Franquicia)
-            .HasForeignKey(r => r.FranquiciaId)
+        // ✅ Índice para búsquedas por nombre
+        builder.HasIndex(f => f.Nombre);
+
+        // Relación con Organizacion
+        builder.HasOne(f => f.Organizacion)
+            .WithMany(o => o.Franquicias)
+            .HasForeignKey(f => f.OrganizacionId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

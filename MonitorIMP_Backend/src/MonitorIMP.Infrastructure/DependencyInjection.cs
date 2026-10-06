@@ -1,32 +1,32 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MonitorIMP.Application.Interfaces.Persistence;
+using MonitorIMP.Application.Abstractions;
 using MonitorIMP.Infrastructure.Persistence;
-using MonitorIMP.Infrastructure.Persistence.Repositories;
+using MonitorIMP.Infrastructure.Services;
 
 namespace MonitorIMP.Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructureServices(
+    public static IServiceCollection AddInfrastructure(
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        // DbContext
         var connectionString = configuration.GetConnectionString("DefaultConnection")
             ?? throw new InvalidOperationException(
-                "La cadena de conexión 'DefaultConnection' no está configurada.");
+                "No se encontró la cadena de conexión 'DefaultConnection'.");
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(
-                connectionString,
-                b => b.MigrationsAssembly(
-                    typeof(ApplicationDbContext).Assembly.FullName)));
+            options.UseSqlServer(connectionString));
 
-        // Repositorios y servicios de infraestructura se registrarán aquí.
-        services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+        services.AddScoped<IApplicationDbContext>(sp =>
+            sp.GetRequiredService<ApplicationDbContext>());
 
-        services.AddScoped<IImpresoraRepository, ImpresoraRepository>();
+        // Servicios de infraestructura
+        services.AddScoped<IAuditoriaService, AuditoriaService>();
+        services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         return services;
     }

@@ -11,30 +11,46 @@ public class AgenteConfiguration : IEntityTypeConfiguration<Agente>
         builder.ToTable("Agentes");
 
         builder.HasKey(a => a.Id);
+        builder.Property(a => a.Id).ValueGeneratedNever();
+
+        builder.Property(a => a.RestauranteId).IsRequired();
 
         builder.Property(a => a.Codigo)
             .IsRequired()
             .HasMaxLength(30);
+
+        // Código único por restaurante
+        builder.HasIndex(a => new { a.RestauranteId, a.Codigo })
+            .IsUnique();
 
         builder.Property(a => a.NombreEquipo)
             .IsRequired()
             .HasMaxLength(100);
 
         builder.Property(a => a.Version)
+            .IsRequired()
             .HasMaxLength(30);
 
         builder.Property(a => a.Estado)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
+
+        builder.Property(a => a.UltimoHeartBeat)
+            .HasColumnType("datetime2");
 
         builder.Property(a => a.UltimaIp)
+            .HasColumnType("varchar(45)")
             .HasMaxLength(45);
 
-        builder.HasIndex(a => new { a.RestauranteId, a.Codigo })
-            .IsUnique();
+        // Índices para consultas frecuentes
+        builder.HasIndex(a => a.Estado);
+        builder.HasIndex(a => a.UltimoHeartBeat);
+        builder.HasIndex(a => new { a.Estado, a.UltimoHeartBeat });
 
-        builder.HasMany(a => a.Impresoras)
-            .WithOne(i => i.Agente)
-            .HasForeignKey(i => i.AgenteId)
-            .OnDelete(DeleteBehavior.Cascade);
+        // Relación con Restaurante
+        builder.HasOne(a => a.Restaurante)
+            .WithMany(r => r.Agentes)
+            .HasForeignKey(a => a.RestauranteId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

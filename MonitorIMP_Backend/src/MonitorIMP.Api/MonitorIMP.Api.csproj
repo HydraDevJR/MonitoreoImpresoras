@@ -12,10 +12,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MonitorIMP.Application\MonitorIMP.Application.csproj" />
     <ProjectReference Include="..\MonitorIMP.Infrastructure\MonitorIMP.Infrastructure.csproj" />
   </ItemGroup>
 

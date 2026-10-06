@@ -16,3 +16,5 @@ C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\
 C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Infrastructure\obj\Debug\net10.0\refint\MonitorIMP.Infrastructure.dll
 C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Infrastructure\obj\Debug\net10.0\MonitorIMP.Infrastructure.pdb
 C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Infrastructure\obj\Debug\net10.0\ref\MonitorIMP.Infrastructure.dll
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Infrastructure\bin\Debug\net10.0\MonitorIMP.Infrastructure.runtimeconfig.json
+C:\Desarrollo\Monitore de Impresoras\MonitoreoImpresoras\MonitorIMP_Backend\src\MonitorIMP.Infrastructure\obj\Debug\net10.0\MonitorIMP.Infrastructure.genruntimeconfig.cache

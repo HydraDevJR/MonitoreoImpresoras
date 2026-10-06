@@ -11,26 +11,48 @@ public class ImpresoraEventoConfiguration : IEntityTypeConfiguration<ImpresoraEv
         builder.ToTable("ImpresoraEventos");
 
         builder.HasKey(e => e.Id);
+        builder.Property(e => e.Id).ValueGeneratedNever();
+
+        builder.Property(e => e.ImpresoraId).IsRequired();
 
         builder.Property(e => e.TipoEvento)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
 
-        builder.Property(e => e.FechaEvento)
-            .IsRequired();
-
-        builder.Property(e => e.EstadoAnterior);
+        builder.Property(e => e.EstadoAnterior)
+            .HasConversion<int>();
 
         builder.Property(e => e.EstadoNuevo)
-            .IsRequired();
+            .IsRequired()
+            .HasConversion<int>();
+
+        builder.Property(e => e.FechaEvento)
+            .IsRequired()
+            .HasColumnType("datetime2")
+            .HasDefaultValueSql("GETUTCDATE()");
 
         builder.Property(e => e.Descripcion)
             .HasMaxLength(500);
 
-        builder.Property(e => e.EventoId);
+        builder.Property(e => e.EventoId).IsRequired();
 
-        builder.HasIndex(e => e.EventoId)
-            .IsUnique();
+        // Idempotencia
+        builder.HasIndex(e => new { e.ImpresoraId, e.EventoId }).IsUnique();
 
-        builder.HasIndex(e => new { e.ImpresoraId, e.FechaEvento });
+        // Índices timeline
+        builder.HasIndex(e => new { e.ImpresoraId, e.FechaEvento })
+            .IsDescending(false, true);
+
+        builder.HasIndex(e => new { e.TipoEvento, e.FechaEvento })
+            .IsDescending(false, true);
+
+        // ✅ Timeline general descendente
+        builder.HasIndex(e => e.FechaEvento).IsDescending(true);
+
+        // Relación con Impresora
+        builder.HasOne(e => e.Impresora)
+            .WithMany(i => i.Eventos)
+            .HasForeignKey(e => e.ImpresoraId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

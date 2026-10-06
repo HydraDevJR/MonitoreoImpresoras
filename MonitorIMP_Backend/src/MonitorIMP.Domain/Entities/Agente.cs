@@ -1,18 +1,23 @@
 using MonitorIMP.Domain.Enums;
+using MonitorIMP.Domain.Common;
 
 namespace MonitorIMP.Domain.Entities;
 
 public class Agente : BaseEntity<Guid>
 {
-    public string Codigo { get; set; } = string.Empty;
     public int RestauranteId { get; set; }
+    public string Codigo { get; set; } = string.Empty;
     public string NombreEquipo { get; set; } = string.Empty;
     public string Version { get; set; } = string.Empty;
     public EstadoAgente Estado { get; set; }
     public DateTime? UltimoHeartBeat { get; set; }
     public string? UltimaIp { get; set; }
 
-    // Propiedades de navegación de EF Core
     public Restaurante? Restaurante { get; set; }
+
     public ICollection<Impresora> Impresoras { get; set; } = new List<Impresora>();
+
+    public ICollection<AgenteCredencial> Credenciales { get; set; } = new List<AgenteCredencial>();
+
+    public ICollection<Auditoria> Auditorias { get; set; } = new List<Auditoria>();
 }
